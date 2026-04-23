@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyVocabs</title>
+    <link rel="stylesheet" href="css/popup.css" />
+  </head>
+
+  <body>
+    <div class="the_page_save_words_extension">
+      <!-- Header -->
+      <div class="header">
+        <div class="header-top">
+          <div class="logo">
+            <div class="logo-icon">📚</div>
+            <span>MyVocabs</span>
+          </div>
+          <div class="header-actions">
+            <div class="export-menu-wrap">
+              <button id="export-btn" class="header-btn" title="Export words">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+              </button>
+              <div class="export-dropdown" id="export-dropdown">
+                <button class="export-option" id="export-json">📄 Export JSON</button>
+                <button class="export-option" id="export-anki">🃏 Export Anki CSV</button>
+              </div>
+            </div>
+            <button id="import-btn" class="header-btn" title="Import words">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+            </button>
+            <input type="file" id="import-file" accept=".json" style="display: none" />
+          </div>
+        </div>
+
+        <div class="con_form_save_words_extension">
+          <form action="">
+            <div class="con_input_button_save_words_extension">
+              <input type="text" placeholder="Add new word" />
+              <button type="submit">Add</button>
+            </div>
+
+            <p id="exist_word_save_words_extension" style="display: none">
+              This word already exists
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="con_content">
+        <div class="stats">
+          <div class="stat-card">
+            <div class="stat-number" id="word-count">0</div>
+            <div class="stat-label">Words Saved</div>
+          </div>
+          <div class="stat-card pref-card">
+            <div class="stat-label" style="margin-bottom:6px">Default Dictionary</div>
+            <select id="dict-source-select" class="dict-select">
+              <option value="cambridge">📘 Cambridge</option>
+              <option value="oxford">📗 Oxford</option>
+              <option value="wikipedia">📚 Wikipedia</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Toolbar: Search + Sort -->
+        <div class="toolbar">
+          <div class="search-box">
+            <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" id="search-input" placeholder="Search words..." />
+          </div>
+          <select id="sort-select">
+            <option value="newest">Newest</option>
+            <option value="az">A → Z</option>
+            <option value="za">Z → A</option>
+          </select>
+        </div>
+
+        <div class="no_words_message">
+          <div class="no-words-icon">📖</div>
+          <div class="no-words-text">No words yet! Start adding some.</div>
+          <div class="no-words-hint">Type a word above or right-click any text on a page to save it.</div>
+        </div>
+
+        <div class="con_words_view_more">
+          <div class="con_words_save_words_extension"></div>
+        </div>
+      </div>
+
+      <!-- Loading Screen -->
+      <div class="loading">
+        <div class="loader"></div>
+        <p>Loading your words...</p>
+      </div>
+
+      <!-- Error Screen -->
+      <div class="error">
+        <image src="images/error.png" />
+        <p>Something went wrong. Please close the extension and try again.</p>
+      </div>
+
+      <!-- Footer -->
+      <div class="copy_rights_save_words_extension">
+        <p>All data stored locally on your device</p>
+      </div>
+    </div>
+  </body>
+
+  <script src="js/popup.js"></script>
+</html>

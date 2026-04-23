@@ -1,0 +1,45 @@
+{
+  "name": "myVocabs: Save Words and Expand Your Vocabulary Effortlessly",
+  "description": "Highlight text to get instant definitions. Save and learn new words effortlessly. Works fully offline.",
+  "version": "5.1.0",
+  "manifest_version": 2,
+  "icons": {
+    "16": "images/w16.png",
+    "32": "images/w32.png",
+    "48": "images/w64.png",
+    "128": "images/w128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "myvocabs@local",
+      "strict_min_version": "109.0"
+    }
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "images/w16.png",
+      "32": "images/w32.png",
+      "48": "images/w64.png",
+      "128": "images/w128.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "https://api.dictionaryapi.dev/*",
+    "https://en.wikipedia.org/*",
+    "https://dictionary.cambridge.org/*",
+    "https://www.oxfordlearnersdictionaries.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
